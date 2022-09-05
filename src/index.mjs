@@ -1,5 +1,4 @@
-import  {getCanvas} from  '../../canvaslib/HtmlCanvasLib.js'
-
+import  {getCanvas} from 'canvaslib'
 
 window.addEventListener("load",async ()=>{
     const canvas = getCanvas()
