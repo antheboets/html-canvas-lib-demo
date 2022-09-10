@@ -1,4 +1,4 @@
-import  {getCanvas} from '../../canvaslib/HtmlCanvasLib.js'
+import  {getCanvas} from 'canvaslib'
 import {timeStamp} from './helper.mjs'
 
 window.addEventListener("load",async ()=>{
