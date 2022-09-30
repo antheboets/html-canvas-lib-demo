@@ -22,8 +22,8 @@ open the index.html file.
 ## Source code
 This is a snippet of the code that is used to add and use the HTML canvas. The full source code can be found [here](https://github.com/antheboets/html-canvas-lib-demo/blob/main/src/index.mjs).
 ```javascript
-//adding an eventListener that is called on the load event of the window.
-//the function that is given to the eventListener is a async function so we can you the await keyword later
+//adding an eventListener that is called on the load event of the window
+//the function used in the eventListener is a async function so we can you the await keyword later
 window.addEventListener("load",async ()=>{
     //initializing the canvas object with the singleton function
     const canvas = getCanvas()
