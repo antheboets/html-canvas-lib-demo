@@ -12,3 +12,10 @@ export function timeStamp(debugStr){
 export function randomNumber(min = 0 , max = 99){
     return Math.floor(Math.random() *(max - min) + min)
 }
+export function printWelcom(){
+    console.log("Welcome to the demo")
+    console.log("The module source code:")
+    console.log("https://github.com/antheboets/canvas-lib")
+    console.log("The demo source code:")
+    console.log("https://github.com/antheboets/html-canvas-lib-demo")
+}
