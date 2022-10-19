@@ -10,7 +10,7 @@ export function randomNumber(min = 0 , max = 99){
     return Math.floor(Math.random() *(max - min) + min)
 }
 
-export function printWelcom(){
+export function printWelcome(){
     console.log("Welcome to the demo")
     console.log("The module source code:")
     console.log("https://github.com/antheboets/canvas-lib")
