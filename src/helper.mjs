@@ -6,7 +6,7 @@ export function timeStamp(debugStr){
     console.log(debugStr,`${debugTimeStamp()}`)
 }
 
-export function randomNumber(min = 0 , max = 99){
+export function randomNumber(min = 0 , max = 100){
     return Math.floor(Math.random() *(max - min) + min)
 }
 
