@@ -1,10 +1,7 @@
-
 const domLoadedTimestamp = new Date()
-
 function debugTimeStamp(){
     return `${(new Date()-domLoadedTimestamp) / 1000} Sec`
 }
-
 export function timeStamp(debugStr){
     console.log(debugStr,`${debugTimeStamp()}`)
 }
@@ -12,6 +9,7 @@ export function timeStamp(debugStr){
 export function randomNumber(min = 0 , max = 99){
     return Math.floor(Math.random() *(max - min) + min)
 }
+
 export function printWelcom(){
     console.log("Welcome to the demo")
     console.log("The module source code:")
