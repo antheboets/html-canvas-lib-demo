@@ -1,7 +1,9 @@
 const path = require('path');
 
+const mode = "development"
+
 module.exports = {
-  mode: "development",
+  mode: mode,
   entry: './src/index.mjs',
   output: {
     filename: 'main.js',
