@@ -3,3 +3,5 @@ node_modules/*
 localpackage.json
 test.js
 mainTemplate.mjs
+debugPlayground.mjs
+debugPlayground
