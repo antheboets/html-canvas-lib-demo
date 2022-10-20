@@ -27,6 +27,14 @@ moduleList.push(Object.assign({}, config,{
     path: path.resolve(__dirname, 'dist/randomTimer'),
   },
 }))
+moduleList.push(Object.assign({}, config,{
+  name: "debugPlayground",
+  entry: './src/debugPlayground.mjs',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist/debugPlayground'),
+  },
+}))
 
 // Return Array of Configurations
 module.exports = [
