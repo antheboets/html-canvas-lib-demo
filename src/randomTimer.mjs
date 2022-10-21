@@ -9,7 +9,7 @@ window.addEventListener("load",async ()=>{
     const canvas = getCanvas()
     timeStamp("canvas created")
 
-    canvas.setBackgroundVideo("./../content/background.webm")
+    canvas.setBackgroundVideo("./../content/YouCantWinIfYouDontPlay.webm")
     timeStamp("added background video")
 
     /*
@@ -22,17 +22,17 @@ window.addEventListener("load",async ()=>{
     canvas.createLayer([
     {
         contentType:"image",
-        path:"./../content/layer1.png",
+        path:"./../content/backgroundLayer1.png",
         time: 1000*1
     },
     {
         contentType:"image",
-        path:"./../content/layer2.png",
+        path:"./../content/backgroundLayer2.png",
         time: 1000*2
     },
     {
         contentType:"image",
-        path:"./../content/layer3.png",
+        path:"./../content/backgroundLayer3.png",
         time: 1000*3
     }])
 
