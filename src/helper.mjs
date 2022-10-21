@@ -2,8 +2,8 @@ const domLoadedTimestamp = new Date()
 function debugTimeStamp(){
     return `${(new Date()-domLoadedTimestamp) / 1000} Sec`
 }
-export function timeStamp(debugStr){
-    console.log(debugStr,`${debugTimeStamp()}`)
+export function timeStamp(debugStr, extraString = ""){
+    console.log(debugStr,`${extraString}${debugTimeStamp()}`)
 }
 
 export function randomNumber(min = 0 , max = 100){
