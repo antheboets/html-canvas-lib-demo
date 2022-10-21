@@ -1,7 +1,20 @@
+#node modules
 node_modules/*
+
+#all the webpack output files
 *main.js
+
+#local package.json file that has local dependencies for testing of local codebase
 localpackage.json
+
+#a place to test some code snippets that shouldn't be in the repo
 test.js
+
+#template for src files
 mainTemplate.mjs
+
+#a place to test the lib that shouldn't be long term stored
 debugPlayground.mjs
+
+#output of debugPlayground.mjs source code
 debugPlayground
