@@ -45,7 +45,7 @@ window.addEventListener("load",async ()=>{
 
     const exampleFunction = ()=>{
         let time = randomNumberForTimer()
-        console.log(time,"Random")
+        canvas.getLayer(2).setContentPos(9 - time / 1000)
         return time
     }
 
@@ -60,13 +60,31 @@ window.addEventListener("load",async ()=>{
             path:"./../content/random2.png",
             time: () => {
                 let time = randomNumberForTimer()
-                console.log(time,"Number")
+                canvas.getLayer(2).setContentPos(9 - (time / 1000))
                 return time
             }
         }
     ])
+
     canvas.getLayer(1).setMode = 'timer'
     timeStamp("added the second layer")
+
+
+    let numberContentList = []
+
+    for(let i = 9; i >= 0;i--){
+        numberContentList.push({
+            contentType:"image",
+            path:`./../content/number${i}.png`,
+            time: 1000
+        })
+    }
+
+    timeStamp(numberContentList,"list of numbers ")
+    canvas.createLayer(numberContentList)
+    canvas.getLayer(2).setMode = 'timer'
+    timeStamp("added the third layer")
+  
 
     await canvas.startAsync()
     timeStamp("canvas started")
