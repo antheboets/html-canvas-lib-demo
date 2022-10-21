@@ -12,13 +12,6 @@ window.addEventListener("load",async ()=>{
     canvas.setBackgroundVideo("./../content/YouCantWinIfYouDontPlay.webm")
     timeStamp("added background video")
 
-    /*
-    canvas.createLayer({
-        mode:"timer",
-        content:[]
-    })
-    */
-
     canvas.createLayer([
     {
         contentType:"image",
