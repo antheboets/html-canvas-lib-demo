@@ -69,7 +69,13 @@ window.addEventListener("load",async ()=>{
         numberContentList.push({
             contentType:"image",
             path:`./../content/number${i}.png`,
-            time: 1000
+            time: 1000,
+            x:"75%",
+            y:"75%",
+            widthMode:"canvasSize",
+            width:"20%",
+            heightMode:"canvasSize",
+            height:"20%",
         })
     }
 
@@ -77,13 +83,15 @@ window.addEventListener("load",async ()=>{
     canvas.createLayer(numberContentList)
     canvas.getLayer(2).setMode = 'timer'
     timeStamp("added the third layer")
-  
 
     await canvas.startAsync()
     timeStamp("canvas started")
 
+    timeStamp(canvas.getLayer(2).content,"list of numbers ")
+
     console.log(canvas,"done")
     window.addEventListener("mousedown",async (e)=>{
         e.preventDefault
+        timeStamp(canvas.getLayer(2).content)
     })
 })
