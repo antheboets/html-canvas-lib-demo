@@ -35,6 +35,14 @@ moduleList.push(Object.assign({}, config,{
     path: path.resolve(__dirname, 'dist/debugPlayground'),
   },
 }))
+moduleList.push(Object.assign({}, config,{
+  name: "clock",
+  entry: './src/clock.mjs',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist/clock'),
+  },
+}))
 
 // Return Array of Configurations
 module.exports = [
