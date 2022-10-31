@@ -12,6 +12,7 @@ export function randomNumber(min = 0 , max = 100){
 
 export function printWelcome(){
     console.log("Welcome to the demo")
+    console.log("Web design is my passion")
     console.log("The module source code:")
     console.log("https://github.com/antheboets/canvas-lib")
     console.log("The demo source code:")
