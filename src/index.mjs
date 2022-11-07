@@ -1,4 +1,4 @@
-import  {getCanvas} from 'canvaslib'
+import {getCanvas, BackgroundVideo} from 'canvaslib'
 import {timeStamp, printWelcome} from './helper.mjs'
 
 printWelcome()
@@ -13,25 +13,28 @@ window.addEventListener("load",async ()=>{
 
     canvas.drawFps = true
 
-    canvas.setBackgroundVideo("./content/WinningAMeal.webm")
-    timeStamp("added background video")
+    //background video
+    let video = BackgroundVideo()
+    video.path = "./content/WinningAMeal.webm"
+
+    canvas.createLayer(video)
+    timeStamp("added background video layer")
 
     canvas.createLayer([
         {contentType:"image",path:"./content/backgroundLayer1.png",time:3 * 1000},
         {contentType:"image",path:"./content/backgroundLayer2.png",time:3 * 1000},
         {contentType:"image",path:"./content/backgroundLayer3.png",time:3 * 1000}
     ])
-    canvas.getLayer(0).setMode = 'timer'
-    timeStamp("added first layer")
-
+    canvas.getLayer(1).setMode = 'timer'
+    timeStamp("added second layer")
+    
     canvas.createLayer([
         "./content/helloWorld1.png",
         "./content/helloWorld2.png"
     ])
-    timeStamp("added second layer")
+    timeStamp("added third layer")
 
-    console.log(canvas.getLayers(),"layers")
-    console.log(canvas.getLayer(0),"layer")
+    canvas.createLayer([{contentType:"video",path:"./content/ANontypicalDayAtWork.webm",y:"50%",height:"50%"}])
 
     await canvas.startAsync()
     timeStamp("canvas started")
@@ -43,10 +46,10 @@ window.addEventListener("load",async ()=>{
         e.preventDefault
         if(active){
             if(e.wich === 3){
-                canvas.getLayer(1).previous()
+                canvas.getLayer(2).previous()
             }
             else{
-                canvas.getLayer(1).next()
+                canvas.getLayer(2).next()
             }
         }
     })

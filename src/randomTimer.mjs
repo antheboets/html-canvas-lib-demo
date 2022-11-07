@@ -1,4 +1,4 @@
-import  {getCanvas, } from 'canvaslib'
+import  {getCanvas} from 'canvaslib'
 import {timeStamp, randomNumber, printWelcome} from './helper.mjs'
 
 printWelcome()
@@ -9,7 +9,7 @@ window.addEventListener("load",async ()=>{
     const canvas = getCanvas()
     timeStamp("canvas created")
 
-    canvas.setBackgroundVideo("./../content/YouCantWinIfYouDontPlay.webm")
+    canvas.createLayer("./../content/YouCantWinIfYouDontPlay.webm")
     timeStamp("added background video")
 
     canvas.createLayer([
@@ -29,7 +29,7 @@ window.addEventListener("load",async ()=>{
         time: 1000*3
     }])
 
-    canvas.getLayer(0).setMode = 'timer'
+    canvas.getLayer(1).setMode = 'timer'
     timeStamp("added the first layer")
 
     const randomNumberForTimer = ()=>{
@@ -38,7 +38,7 @@ window.addEventListener("load",async ()=>{
 
     const exampleFunction = ()=>{
         let time = randomNumberForTimer()
-        canvas.getLayer(2).setContentPos(9 - time / 1000)
+        canvas.getLayer(3).setContentPos(9 - time / 1000)
         return time
     }
 
@@ -53,13 +53,13 @@ window.addEventListener("load",async ()=>{
             path:"./../content/random2.png",
             time: () => {
                 let time = randomNumberForTimer()
-                canvas.getLayer(2).setContentPos(9 - (time / 1000))
+                canvas.getLayer(3).setContentPos(9 - (time / 1000))
                 return time
             }
         }
     ])
 
-    canvas.getLayer(1).setMode = 'timer'
+    canvas.getLayer(2).setMode = 'timer'
     timeStamp("added the second layer")
 
 
@@ -81,17 +81,17 @@ window.addEventListener("load",async ()=>{
 
     timeStamp(numberContentList,"list of numbers ")
     canvas.createLayer(numberContentList)
-    canvas.getLayer(2).setMode = 'timer'
+    canvas.getLayer(3).setMode = 'timer'
     timeStamp("added the third layer")
 
     await canvas.startAsync()
     timeStamp("canvas started")
 
-    timeStamp(canvas.getLayer(2).content,"list of numbers ")
+    timeStamp(canvas.getLayer(3).content,"list of numbers ")
 
     console.log(canvas,"done")
     window.addEventListener("mousedown",async (e)=>{
         e.preventDefault
-        timeStamp(canvas.getLayer(2).content)
+        timeStamp(canvas.getLayer(3).content)
     })
 })
