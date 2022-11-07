@@ -1,7 +1,9 @@
 const path = require('path');
+const fs = require('fs');
 
 const mode = "development"
 const moduleList = []
+
 
 
 //https://stackoverflow.com/questions/35903246/how-to-create-multiple-output-paths-in-webpack-config
@@ -27,14 +29,16 @@ moduleList.push(Object.assign({}, config,{
     path: path.resolve(__dirname, 'dist/randomTimer'),
   },
 }))
-moduleList.push(Object.assign({}, config,{
-  name: "debugPlayground",
-  entry: './src/debugPlayground.mjs',
-  output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist/debugPlayground'),
-  },
-}))
+if(fs.existsSync('src/debugPlayground.mjs')){
+  moduleList.push(Object.assign({}, config,{
+    name: "debugPlayground",
+    entry: './src/debugPlayground.mjs',
+    output: {
+      filename: 'main.js',
+      path: path.resolve(__dirname, 'dist/debugPlayground'),
+    },
+  }))
+}
 moduleList.push(Object.assign({}, config,{
   name: "clock",
   entry: './src/clock.mjs',
