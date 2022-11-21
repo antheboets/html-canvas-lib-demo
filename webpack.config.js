@@ -6,7 +6,6 @@ const moduleList = []
 
 function addModule(name,entry,dir=''){
   if(fs.existsSync(entry)){
-    console.log(entry)
       name: name,
       entry: entry,
       output:{
