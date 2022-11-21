@@ -6,6 +6,8 @@ const moduleList = []
 
 function addModule(name,entry,dir=''){
   if(fs.existsSync(entry)){
+    moduleList.push({
+      mode: mode,
       name: name,
       entry: entry,
       output:{
@@ -22,6 +24,4 @@ addModule('debugPlayground','./src/debugPlayground.mjs','/debugPlayground')
 addModule('clock','./src/clock.mjs','/clock')
 
 // Return Array of Configurations
-module.exports = [
-  moduleList
-]
+module.exports = moduleList
