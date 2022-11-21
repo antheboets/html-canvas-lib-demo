@@ -21,7 +21,8 @@ function isDir(pathOfDir){
 }
 
 function main(){
-    recursiveThroughDir("./../dist/")
+    //fixing the problem where the path is static and cant be run in the main dir and in the util dir
+    recursiveThroughDir("./dist/")
 }
 
 main()
