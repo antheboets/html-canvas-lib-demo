@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/antheboets/html-canvas-lib-demo#readme",
   "dependencies": {
-    "canvaslib": "github:antheboets/canvas-lib#dev",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0"
   }

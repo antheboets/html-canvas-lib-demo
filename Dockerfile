@@ -1,10 +1,12 @@
 FROM node:19-alpine3.15 AS build
 RUN apk -U upgrade
+RUN apk add git
 WORKDIR /app
 COPY ./ /app/
 RUN npm install npm@latest -g
 RUN npm update -g
 RUN npm install --silent
+RUN npm install antheboets/canvas-lib#dev
 RUN npm run build
 
 FROM nginx:1.23.2-alpine
