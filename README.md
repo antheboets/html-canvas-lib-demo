@@ -27,12 +27,12 @@ This is a snippet of the code that is used to add and use the HTML canvas. The f
 window.addEventListener("load",async ()=>{
     //initializing the canvas object with the singleton function
     const canvas = getCanvas()
-    //adding the background video
-    canvas.setBackgroundVideo("./background.webm")
-    //adding the first layer
-    canvas.addImageLayerFromList(["./layer1.png","./layer2.png","./layer3.png"])
-    //adding the second layer
-    canvas.addImageLayerFromList(["./layer11.png","./layer12.png"])
+    //adding the background video layer
+    canvas.createLayer("./background.webm")
+    //adding the first image layer
+    canvas.createLayer(["./redBackground.png","./greenBackground.png","./blueBackground.png"])
+    //adding the second image layer
+    canvas.createLayer(["./hello.png","./world.png"])
     //starting the animation asynchronisly
     await canvas.startAsync()
 })
