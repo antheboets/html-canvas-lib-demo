@@ -1,6 +1,5 @@
 const path = require('path')
 const fs = require('fs')
-
 //getting the args
 const args = process.argv.slice(2)
 //of all the modules that will be exported
@@ -24,6 +23,7 @@ for(let i = 0; i < args.length; i++){
                 mode = "production"
             break
         }
+        //i have no idea if this works and if this is a good thing but it seems to work
         i = Infinity
     }
 }
