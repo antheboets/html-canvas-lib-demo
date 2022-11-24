@@ -48,3 +48,8 @@ After installing the module you can import it into JavaScript.
 import {getCanvas} from 'canvaslib'
 ```
 -->
+#Docker
+```bash
+sudo docker build --build-arg BRANCH=main --build-arg OPTIMIZATION=dev --no-cache -t html .
+sudo docker run --rm -it -p"80:80" html
+```
