@@ -47,5 +47,6 @@ addModule('randomTimer','./src/randomTimer.mjs','/randomTimer')
 addModule('debugPlayground','./src/debugPlayground.mjs','/debugPlayground')
 addModule('clock','./src/clock.mjs','/clock')
 addModule('video','./src/video.mjs','/video')
+addModule('video2','./src/video2.mjs','/video2')
 //exporting modules
 module.exports = moduleList
