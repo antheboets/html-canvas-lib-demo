@@ -1,11 +1,14 @@
 {
   "name": "html-canvas-lib-demo",
   "version": "1.0.0",
+  "private": true,
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js",
+    "predeploy": "npm run build -- --env optimization=prod",
+    "deploy": "gh-pages -d dist",
     "clean": "node utils/cleanDist.js"
   },
   "repository": {
@@ -17,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/antheboets/html-canvas-lib-demo/issues"
   },
-  "homepage": "https://github.com/antheboets/html-canvas-lib-demo#readme",
+  "homepage": "https://antheboets.github.io/antheboets/html-canvas-lib-demo",
   "dependencies": {
     "canvaslib": "github:antheboets/canvas-lib#dev",
     "gh-pages": "^4.0.0",
