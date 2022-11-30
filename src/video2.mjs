@@ -1,5 +1,5 @@
 import {getCanvas} from 'canvaslib'
-import {timeStamp, printWelcome} from './helper.mjs'
+import {timeStamp, printWelcome, addingHomepageButton} from './helper.mjs'
 
 printWelcome()
 
@@ -22,6 +22,9 @@ window.addEventListener("load",async ()=>{
 
     canvas.createLayer([{path:"./../content/10secBHopBenchmark.webm",x:"50%",y:"50%",height:"50%",width:"50%",heightMode:"canvasSize",widthMode:"canvasSize"}])
     timeStamp("added fourth video layer")
+
+    addingHomepageButton(canvas)
+    timeStamp("added home button")
 
     await canvas.startAsync()
     timeStamp("canvas started")

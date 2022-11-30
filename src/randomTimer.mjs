@@ -1,5 +1,5 @@
-import  {getCanvas} from 'canvaslib'
-import {timeStamp, randomNumber, printWelcome} from './helper.mjs'
+import {getCanvas} from 'canvaslib'
+import {timeStamp, randomNumber, printWelcome, addingHomepageButton} from './helper.mjs'
 
 printWelcome()
 
@@ -89,6 +89,9 @@ window.addEventListener("load",async ()=>{
     canvas.createLayer(numberContentList)
     canvas.getLayer(3).setMode = 'timer'
     timeStamp("added the third layer")
+
+    addingHomepageButton(canvas)
+    timeStamp("added home button")
 
     await canvas.startAsync()
     timeStamp("canvas started")
