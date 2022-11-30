@@ -26,7 +26,7 @@ window.addEventListener("load",async ()=>{
     const canvas = getCanvas()
     timeStamp("canvas created")
 
-    canvas.createLayer("./../content/MeEnteringUnauthorizedZoneAtWork.webm")
+    canvas.createLayer([{contentType:"video",path:"./../content/MeEnteringUnauthorizedZoneAtWork.webm",heightMode:"canvasSize",widthMode:"canvasSize"}])
     timeStamp("added background video")
 
     let y = 250

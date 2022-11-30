@@ -9,16 +9,16 @@ window.addEventListener("load",async ()=>{
     const canvas = getCanvas()
     timeStamp("canvas created")
 
-    canvas.createLayer([{path:"./../content/resort1.webm",x:0,y:0,height:"50%",width:"50%"}])
+    canvas.createLayer([{path:"./../content/resort1.webm",x:0,y:0,height:"50%",width:"50%",heightMode:"canvasSize",widthMode:"canvasSize"}])
     timeStamp("added first video layer")
 
-    canvas.createLayer([{path:"./../content/resort2.webm",x:"50%",y:0,height:"50%",width:"50%"}])
+    canvas.createLayer([{path:"./../content/resort2.webm",x:"50%",y:0,height:"50%",width:"50%",heightMode:"canvasSize",widthMode:"canvasSize"}])
     timeStamp("added second video layer")
 
-    canvas.createLayer([{path:"./../content/resort3.webm",x:0,y:"50%",height:"50%",width:"50%"}])
+    canvas.createLayer([{path:"./../content/resort3.webm",x:0,y:"50%",height:"50%",width:"50%",heightMode:"canvasSize",widthMode:"canvasSize"}])
     timeStamp("added third video layer")
 
-    canvas.createLayer([{path:"./../content/resort4.webm",x:"50%",y:"50%",height:"50%",width:"50%"}])
+    canvas.createLayer([{path:"./../content/resort4.webm",x:"50%",y:"50%",height:"50%",width:"50%",heightMode:"canvasSize",widthMode:"canvasSize"}])
     timeStamp("added fourth video layer")
 
     await canvas.startAsync()
