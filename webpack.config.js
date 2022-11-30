@@ -60,6 +60,9 @@ addModule('debugPlayground','./src/debugPlayground.mjs','/debugPlayground')
 addModule('clock','./src/clock.mjs','/clock')
 addModule('video','./src/video.mjs','/video')
 addModule('video2','./src/video2.mjs','/video2')
+addModule('content','./src/content.mjs','/content')
+
+console.log(`bundeling with ${mode} optimazation mode`)
 
 //exporting modules
 module.exports = moduleList
