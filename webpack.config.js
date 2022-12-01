@@ -1,5 +1,6 @@
 const path = require('path')
 const fs = require('fs')
+const fsPromises = require('fs').promises
 
 //getting the args
 const argv = process.argv.slice(2)
@@ -38,19 +39,50 @@ switch(args.optimazation){
 const moduleList = []
 
 //function that creates a module object and add it to the list
-function addModule(name,entry,dir=''){
+function addModule(name,entry,dir='',outputFilename='main.js'){
     if(fs.existsSync(entry)){
             moduleList.push({
             mode: mode,
             name: name,
             entry: entry,
             output: {
-                filename: 'main.js',
+                filename: outputFilename,
                 path: path.resolve(__dirname, `./dist${dir}`)
             }
         })
     }
 }
+const contentList = []
+
+async function writeJsonFile (filename,data){
+    await fsPromises.writeFile(`${filename}.json`,JSON.stringify(data,null,3),(error)=>{})
+}
+
+async function recursiveThroughDir(pathOfDir){
+    let listOfFilesInDir = await fsPromises.readdir(pathOfDir)
+    listOfFilesInDir.forEach(async (file)=>{
+        if(isDir(path.resolve(pathOfDir,file))){
+            await recursiveThroughDir(path.resolve(pathOfDir,file))
+        }
+        else{
+            contentList.push(`${pathOfDir.replace("/dist","")}${file}`)
+        }
+    })
+}
+
+function isDir(pathOfDir){
+    return fs.existsSync(pathOfDir) && fs.lstatSync(pathOfDir).isDirectory() 
+}
+
+async function makeListForContentPage(){
+    await recursiveThroughDir("./dist/content/")
+    await writeJsonFile("./dist/content",contentList)
+}
+
+function preBundeling(){
+    makeListForContentPage()
+}
+preBundeling()
 
 //this should be a function that reads the dir maybe?
 //adding modules
@@ -60,6 +92,11 @@ addModule('debugPlayground','./src/debugPlayground.mjs','/debugPlayground')
 addModule('clock','./src/clock.mjs','/clock')
 addModule('video','./src/video.mjs','/video')
 addModule('video2','./src/video2.mjs','/video2')
+addModule('content','./src/content.mjs','','content.js')
+
+//postBundeling if needed()
+
+console.log(`bundeling with ${mode} optimazation mode`)
 
 //exporting modules
 module.exports = moduleList

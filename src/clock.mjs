@@ -1,5 +1,5 @@
-import  {getCanvas} from 'canvaslib'
-import {timeStamp, randomNumber, printWelcome} from './helper.mjs'
+import {getCanvas} from 'canvaslib'
+import {timeStamp, printWelcome, addingHomepageButton} from './helper.mjs'
 
 printWelcome()
 
@@ -26,7 +26,7 @@ window.addEventListener("load",async ()=>{
     const canvas = getCanvas()
     timeStamp("canvas created")
 
-    canvas.createLayer("./../content/MeEnteringUnauthorizedZoneAtWork.webm")
+    canvas.createLayer([{contentType:"video",path:"./../content/MeEnteringUnauthorizedZoneAtWork.webm",heightMode:"canvasSize",widthMode:"canvasSize"}])
     timeStamp("added background video")
 
     let y = 250
@@ -42,6 +42,9 @@ window.addEventListener("load",async ()=>{
 
     canvas.createLayer(getLayerList("0%",y,1000))
     canvas.getLayer(4).setMode = "timer"
+
+    addingHomepageButton(canvas)
+    timeStamp("added home button")
 
     await canvas.startAsync()
     timeStamp("canvas started")

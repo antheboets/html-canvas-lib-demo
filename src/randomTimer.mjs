@@ -1,5 +1,5 @@
-import  {getCanvas} from 'canvaslib'
-import {timeStamp, randomNumber, printWelcome} from './helper.mjs'
+import {getCanvas} from 'canvaslib'
+import {timeStamp, randomNumber, printWelcome, addingHomepageButton} from './helper.mjs'
 
 printWelcome()
 
@@ -9,23 +9,29 @@ window.addEventListener("load",async ()=>{
     const canvas = getCanvas()
     timeStamp("canvas created")
 
-    canvas.createLayer("./../content/YouCantWinIfYouDontPlay.webm")
+    canvas.createLayer([{contentType:"video",path:"./../content/YouCantWinIfYouDontPlay.webm",heightMode:"canvasSize",widthMode:"canvasSize"}])
     timeStamp("added background video")
 
     canvas.createLayer([
     {
         contentType:"image",
         path:"./../content/backgroundLayer1.png",
+        heightMode:"canvasSize",
+        widthMode:"canvasSize",
         time: 1000*1
     },
     {
         contentType:"image",
         path:"./../content/backgroundLayer2.png",
+        heightMode:"canvasSize",
+        widthMode:"canvasSize",
         time: 1000*2
     },
     {
         contentType:"image",
         path:"./../content/backgroundLayer3.png",
+        heightMode:"canvasSize",
+        widthMode:"canvasSize",
         time: 1000*3
     }])
 
@@ -83,6 +89,9 @@ window.addEventListener("load",async ()=>{
     canvas.createLayer(numberContentList)
     canvas.getLayer(3).setMode = 'timer'
     timeStamp("added the third layer")
+
+    addingHomepageButton(canvas)
+    timeStamp("added home button")
 
     await canvas.startAsync()
     timeStamp("canvas started")
