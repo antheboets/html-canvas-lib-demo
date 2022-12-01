@@ -1,12 +1,17 @@
 function displayImage(file){
     const image = new Image(file)
+    image.style = 'width:100%'
     image.src = file
-    image.onload = ()=>{
-        div.appendChild(image)
-    }
+    div.appendChild(image)
 }
 function displayVideo(file){
-
+    const video = document.createElement('video')
+    video.muted = false
+    video.autoplay = true
+    video.loop = true
+    video.controls = true
+    video.src = file
+    div.appendChild(video)
 }
 function displayFont(file){
     let fontDiv = document.createElement('DIV')
