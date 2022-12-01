@@ -18,3 +18,7 @@ debugPlayground.mjs
 
 #output of debugPlayground.mjs source code
 debugPlayground
+
+#ignore config for content page
+*content.js
+*content.json
