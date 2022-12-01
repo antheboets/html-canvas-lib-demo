@@ -17,7 +17,7 @@ function recursiveThroughDir(pathOfDir){
 }
 
 function isDir(pathOfDir){
-    return fs.existsSync(pathOfDir) &&  fs.lstatSync(pathOfDir).isDirectory() 
+    return fs.existsSync(pathOfDir) && fs.lstatSync(pathOfDir).isDirectory() 
 }
 
 function main(){

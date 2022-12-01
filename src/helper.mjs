@@ -18,3 +18,15 @@ export function printWelcome(){
     console.log("The demo source code:")
     console.log("https://github.com/antheboets/html-canvas-lib-demo")
 }
+export function addingHomepageButton(canvas){
+    canvas.createLayer({
+        contentType:"image",
+        path:"./../content/homeButton.png",
+        x:20,
+        y:20,
+        click:true,
+        clickAction:()=>{
+            window.location.replace("../index.html")
+        }
+    })
+}
