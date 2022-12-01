@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/antheboets/html-canvas-lib-demo/issues"
   },
-  "homepage": "https://antheboets.github.io/antheboets/html-canvas-lib-demo",
+  "homepage": "https://antheboets.github.io/html-canvas-lib-demo/",
   "dependencies": {
     "canvaslib": "github:antheboets/canvas-lib#dev",
     "gh-pages": "^4.0.0",
