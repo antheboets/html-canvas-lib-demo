@@ -39,14 +39,14 @@ switch(args.optimazation){
 const moduleList = []
 
 //function that creates a module object and add it to the list
-function addModule(name,entry,dir=''){
+function addModule(name,entry,dir='',outputFilename='main.js'){
     if(fs.existsSync(entry)){
             moduleList.push({
             mode: mode,
             name: name,
             entry: entry,
             output: {
-                filename: 'main.js',
+                filename: outputFilename,
                 path: path.resolve(__dirname, `./dist${dir}`)
             }
         })
@@ -60,15 +60,11 @@ async function writeJsonFile (filename,data){
 
 async function recursiveThroughDir(pathOfDir){
     let listOfFilesInDir = await fsPromises.readdir(pathOfDir)
-    //console.log(listOfFilesInDir)
-    //console.log("async?")
-    await listOfFilesInDir.forEach(async (file)=>{
+    listOfFilesInDir.forEach(async (file)=>{
         if(isDir(path.resolve(pathOfDir,file))){
-            //console.log("async?2")
-            let test = await recursiveThroughDir(path.resolve(pathOfDir,file))
+            await recursiveThroughDir(path.resolve(pathOfDir,file))
         }
         else{
-            //console.log(`${pathOfDir.replace("/dist","")}${file}`)
             contentList.push(`${pathOfDir.replace("/dist","")}${file}`)
         }
     })
@@ -80,7 +76,6 @@ function isDir(pathOfDir){
 
 async function makeListForContentPage(){
     await recursiveThroughDir("./dist/content/")
-    console.log(contentList)
     await writeJsonFile("./dist/content",contentList)
 }
 
@@ -97,7 +92,7 @@ addModule('debugPlayground','./src/debugPlayground.mjs','/debugPlayground')
 addModule('clock','./src/clock.mjs','/clock')
 addModule('video','./src/video.mjs','/video')
 addModule('video2','./src/video2.mjs','/video2')
-addModule('content','./src/content.mjs','/content')
+addModule('content','./src/content.mjs','','content.js')
 
 //postBundeling if needed()
 
