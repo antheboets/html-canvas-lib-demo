@@ -1,3 +1,5 @@
+const alphabet = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+
 function displayImage(file){
     const image = new Image(file)
     image.style = 'width:100%'
@@ -5,21 +7,33 @@ function displayImage(file){
     div.appendChild(image)
 }
 function displayVideo(file){
+    const videoDiv = getBasicDiv(file)
     const video = document.createElement('video')
     video.muted = false
     video.autoplay = true
     video.loop = true
     video.controls = true
     video.src = file
-    div.appendChild(video)
+    videoDiv.appendChild(video)
+    div.appendChild(videoDiv)
 }
 function displayFont(file){
-    let fontDiv = document.createElement('DIV')
+    let fontDiv = getBasicDiv(file)
     let pUpperCase = document.createElement('P')
     let pLowerCase = document.createElement('P')
+    pUpperCase.textContent = alphabet
+    pLowerCase.textContent = alphabet
     fontDiv.appendChild(pUpperCase)
     fontDiv.appendChild(pLowerCase)
     div.appendChild(fontDiv)
+}
+function getBasicDiv(file){
+    const div = document.createElement('DIV')
+    const h1 = document.createElement('H1')
+    h1.innerText = file
+    div.appendChild(h1)
+    div.appendChild(document.createElement('HR'))
+    return div
 }
 
 const div = document.createElement('DIV')
