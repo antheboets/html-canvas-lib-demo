@@ -1,5 +1,6 @@
 const alphabet = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
 const div = document.createElement('DIV')
+const defaultFont = 'Courier New'
 
 function displayImage(file,div){
     const image = new Image(file)
@@ -21,8 +22,17 @@ function displayVideo(file,div){
 function displayFont(file,div){
     let pUpperCase = document.createElement('P')
     let pLowerCase = document.createElement('P')
-    //gen font name
-    const font = new FontFace(file,`url(${file})`)
+    let fontName = file.split('/').at(-1).split('.')[0]
+    const font = new FontFace(fontName,`url(${file})`)
+    font.load().then((loadedFont)=>{
+        document.fonts.add(loadedFont)
+        pUpperCase.style.fontFamily = fontName
+        pLowerCase.style.fontFamily = fontName
+    }).catch((error)=>{
+        console.log(error)
+        pUpperCase.style.fontFamily = defaultFont
+        pLowerCase.style.fontFamily = defaultFont
+    })
     pUpperCase.textContent = alphabet.toUpperCase()
     pUpperCase.style.fontSize = '5em'
     pUpperCase.style.marginTop = '0.2em'
@@ -49,7 +59,7 @@ window.addEventListener("load",async ()=>{
     const listOfContent = await fetch("./content.json",{method:"GET",headers:{'Content-Type':'application/json'}}).then((res)=>{return res.json()})
     listOfContent.forEach(file => {
         const baseDiv = getBasicDiv(file)
-        switch(file.split('.').pop()){
+        switch(file.split('.').pop().toLowerCase()){
             case "png":
                 displayImage(file,baseDiv)
             break
