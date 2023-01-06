@@ -9,6 +9,7 @@ function displayImage(file,div){
     div.appendChild(image)
     div.className = 'image'
 }
+
 function displayVideo(file,div){
     const video = document.createElement('video')
     video.muted = false
@@ -19,10 +20,11 @@ function displayVideo(file,div){
     div.appendChild(video)
     div.className = 'video'
 }
+
 function displayFont(file,div){
-    let pUpperCase = document.createElement('P')
-    let pLowerCase = document.createElement('P')
-    let fontName = file.split('/').at(-1).split('.')[0]
+    const pUpperCase = document.createElement('P')
+    const pLowerCase = document.createElement('P')
+    const fontName = file.split('/').at(-1).split('.')[0]
     const font = new FontFace(fontName,`url(${file})`)
     font.load().then((loadedFont)=>{
         document.fonts.add(loadedFont)
@@ -45,15 +47,17 @@ function displayFont(file,div){
     div.appendChild(pLowerCase)
     div.className = 'font'
 }
+
 function getBasicDiv(file){
     const div = document.createElement('DIV')
     const header = document.createElement('H2')
+    const hr = document.createElement('HR')
     header.innerText = file
+    hr.style.border = '1px solid black'
+    div.appendChild(hr)
     div.appendChild(header)
-    div.appendChild(document.createElement('HR'))
     return div
 }
-
 
 window.addEventListener("load",async ()=>{
     const listOfContent = await fetch("./content.json",{method:"GET",headers:{'Content-Type':'application/json'}}).then((res)=>{return res.json()})
