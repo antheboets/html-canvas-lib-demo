@@ -52,22 +52,22 @@ function addModule(name,entry,dir='',outputFilename='main.js'){
         })
     }
 }
-const contentList = []
 
 async function writeJsonFile (filename,data){
     await fsPromises.writeFile(`${filename}.json`,JSON.stringify(data,null,3),(error)=>{})
 }
 
-async function recursiveThroughDir(pathOfDir){
+async function recursiveThroughDir(pathOfDir,contentList){
     let listOfFilesInDir = await fsPromises.readdir(pathOfDir)
-    listOfFilesInDir.forEach(async (file)=>{
+    listOfPromises = listOfFilesInDir.map(async (file)=>{
         if(isDir(path.resolve(pathOfDir,file))){
-            await recursiveThroughDir(path.resolve(pathOfDir,file))
+            await recursiveThroughDir(`${pathOfDir}${file}/`,contentList)
         }
         else{
             contentList.push(`${pathOfDir.replace("/dist","")}${file}`)
         }
     })
+    await Promise.all(listOfPromises)
 }
 
 function isDir(pathOfDir){
@@ -75,7 +75,8 @@ function isDir(pathOfDir){
 }
 
 async function makeListForContentPage(){
-    await recursiveThroughDir("./dist/content/")
+    const contentList = []
+    await recursiveThroughDir("./dist/content/",contentList)
     await writeJsonFile("./dist/content",contentList)
 }
 
