@@ -18,8 +18,10 @@ pipeline {
         }
         stage('SCM'){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/jenkins']],
-    userRemoteConfigs: [[url: 'https://github.com/antheboets/html-canvas-lib-demo.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/jenkins']],userRemoteConfigs: [[url: 'https://github.com/antheboets/html-canvas-lib-demo.git']]])
+                sh 'ls'
+                sh './cd html-canvas-lib-demo'
+                sh 'ls'
             } 
         }
         stage('Get packages'){
