@@ -20,7 +20,7 @@ pipeline {
             steps{
                 checkout([$class: 'GitSCM', branches: [[name: '*/jenkins']],userRemoteConfigs: [[url: 'https://github.com/antheboets/html-canvas-lib-demo.git']]])
                 sh 'ls'
-                sh './cd html-canvas-lib-demo'
+                sh 'cd ./html-canvas-lib-demo'
                 sh 'ls'
             } 
         }
