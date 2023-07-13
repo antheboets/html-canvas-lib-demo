@@ -5,7 +5,7 @@ pipeline {
         }
     }
     options {
-        skipDefaultC
+        skipDefaultCheckout
     }
     
     stages {
